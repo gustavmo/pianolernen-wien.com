@@ -8,8 +8,8 @@ $purple: #5a6ebd;
 $rose: #bd5a95;
 
 $pc: 1092px;
-$ipad: 768px; 
-$phone: 445px; 
+$ipad: 768px;
+$phone: 445px;
 
 $width-bigger: 300px;
 $width: 230px;
@@ -17,23 +17,25 @@ $height: 80px;
 $border: 2px;
 
 @font-face {
-  font-family: TextMeOne;
-   src: url("https://www.pianolernen-wien.com/assets/TextMeOne-Regular.woff2") format('woff2'), /* Super Modern Browsers */
-        url("https://www.pianolernen-wien.com//assets/TextMeOne-Regular.woff") format('woff'), /* Pretty Modern Browsers */
-        url("https://www.pianolernen-wien.com/assets/TextMeOne-Regular.ttf")  format('truetype');
-  font-display: swap;
+	font-family: TextMeOne;
+	src: url("https://www.pianolernen-wien.com/assets/TextMeOne-Regular.woff2") format('woff2'),
+		/* Super Modern Browsers */
+		url("https://www.pianolernen-wien.com//assets/TextMeOne-Regular.woff") format('woff'),
+		/* Pretty Modern Browsers */
+		url("https://www.pianolernen-wien.com/assets/TextMeOne-Regular.ttf") format('truetype');
+	font-display: swap;
 }
 
 ::selection {
-  color: $pink;
-  background: white;
+	color: $pink;
+	background: white;
 }
 
 body {
-    background: white;
-    color: $gray;
-    font-family: TextMeOne;
-    font-size: 18px;
+	background: white;
+	color: $gray;
+	font-family: TextMeOne;
+	font-size: 18px;
 	margin: 0;
 }
 
@@ -41,7 +43,7 @@ h2 {
 	font-weight: 400;
 	font-size: 2.5rem;
 	line-height: 1;
-	
+
 }
 
 h3 {
@@ -57,50 +59,59 @@ a {
 }
 
 .header-bold {
-    font-weight: 800;
-    line-height: 1.2;
-    letter-spacing: 0em;
-    margin: 2rem;
+	font-weight: 800;
+	line-height: 1.2;
+	letter-spacing: 0em;
+	margin: 2rem;
 	z-index: 1;
-    background-image: linear-gradient(45deg, white, $pink-light);
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    color: transparent; 
-	
+	background-image: linear-gradient(45deg, white, $pink-light);
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	color: transparent;
+
 	position: absolute;
 	bottom: 48vh;
-    
+
 	font-size: 3rem;
 	text-align: center;
-	
+
 	@media only screen and (min-width : $phone) {
 		text-align: left;
 	}
-	
+
 	@media only screen and (min-width : $ipad) {
 		font-size: 5rem;
 	}
-	
+
 	@media only screen and (min-width : $pc) {
 		font-size: 7rem;
 	}
 }
 
 @keyframes colorize {
-    0% {
-        -webkit-filter: grayscale(80%);
-        filter: grayscale(80%);
-    }
-    100% {
-        -webkit-filter: grayscale(0%);
-        filter: grayscale(0%);
-    }
+	0% {
+		-webkit-filter: grayscale(80%);
+		filter: grayscale(80%);
+	}
+
+	100% {
+		-webkit-filter: grayscale(0%);
+		filter: grayscale(0%);
+	}
 }
 
-@keyframes gradient{ 
-    0%   { background-position: 14% 0%; }
-    50%  { background-position: 87% 100%; }
-    100% { background-position: 14% 0%; }
+@keyframes gradient {
+	0% {
+		background-position: 14% 0%;
+	}
+
+	50% {
+		background-position: 87% 100%;
+	}
+
+	100% {
+		background-position: 14% 0%;
+	}
 }
 
 .selectpicker {
@@ -108,14 +119,92 @@ a {
 	top: 25px;
 	right: 25px;
 	z-index: 1;
-	
+
 	font-size: 24px;
-	
+
 	a {
 		padding: 10px;
 	}
-	a:hover, a:focus{
+
+	a:hover,
+	a:focus {
 		background: $pink-light;
+	}
+}
+
+/* Global button style */
+.wrapper--box {
+	position: relative;
+	margin: 2rem;
+	padding: 0;
+	/* Fixes padding inheritance from #header-content a */
+	animation: colorize 0.7s cubic-bezier(0, 0, .78, .36) 1;
+
+	text-align: center;
+	font-size: 1.4em;
+	box-sizing: border-box;
+
+	min-width: $width;
+	width: auto;
+	min-height: $height;
+	height: auto;
+	padding: 0 1rem;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	@media only screen and (min-width : $phone) {
+		min-width: $width-bigger;
+	}
+
+	span {
+
+		border: 0;
+		display: block;
+		width: 100%;
+		background: linear-gradient(120deg, $pink-alt, $pink-light, $pink-alt);
+		background-size: 80% 80%;
+		line-height: 1.1;
+		/* Slightly tighter for multi-line support */
+
+		-webkit-background-clip: text;
+		-moz-background-clip: text;
+		color: transparent;
+		animation: gradient 3s ease-in-out infinite;
+
+		&:after {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			width: 100%;
+			height: 100%;
+			content: '';
+
+			background: linear-gradient(120deg, $blue-main, $pink-alt, $blue-main);
+			background-size: 150% 150%;
+			clip-path: polygon(0% 100%, $border 100%, $border $border, calc(100% - #{$border}) $border, calc(100% - #{$border}) calc(100% - #{$border}), $border calc(100% - #{$border}), $border 100%, 100% 100%, 100% 0%, 0% 0%);
+			animation: gradient 3s ease-in-out infinite, border 1s forwards ease-in-out reverse;
+		}
+	}
+}
+
+.wrapper--box:hover,
+.wrapper--box:focus {
+	background: $pink-light;
+	transition: all .3s;
+
+	span {
+		background: linear-gradient(120deg, white, white, white);
+		-webkit-background-clip: text;
+		-moz-background-clip: text;
+
+		&:after {
+			background: $pink-light;
+		}
 	}
 }
 
@@ -128,16 +217,19 @@ a {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-	
+
 		#video-supporter {
 			min-width: 92vw;
+
 			@media only screen and (min-width : $phone) {
 				min-width: 42vw;
 			}
+
 			@media only screen and (min-width : $ipad) {
 				min-width: 0vw;
 			}
 		}
+
 		#videoBG {
 			width: 100%;
 			min-width: 120vh;
@@ -146,166 +238,106 @@ a {
 			z-index: 0;
 		}
 	}
+
 	#header-content {
 		background: white;
 		padding: 16px 0;
 		width: 100%;
-	
+
+
+
+		/* Existing usage in header */
 		#segmentation {
-			> a {
-				position: relative; 
-				margin: 2rem;
-				animation: colorize 0.7s cubic-bezier(0, 0, .78, .36) 1;
-				
-				text-align: center;
-				font-size: 1.7em;
-		
-				width: $width;
-				height: $height;
-				
-				@media only screen and (min-width : $phone) {
-					width: $width-bigger;
-				}
 
-				span {
+			#box-1 {}
 
-					border: 0;
-					display: block;
-					background: linear-gradient(120deg, $pink-alt, $pink-light, $pink-alt);
-					background-size: 80% 80%;
-
-					-webkit-background-clip: text;
-					-moz-background-clip: text;
-					color: transparent;
-					animation: gradient 3s ease-in-out infinite;
-					
-					&:after {
-						position: absolute;
-						top: 0;
-						left: 0;
-						right: 0;
-						bottom: 0;
-						margin: auto;
-						width: $width;
-						height: $height;
-						content: '';
-						
-						background: linear-gradient(120deg, $blue-main, $pink-alt, $blue-main);
-						background-size: 150% 150%;
-						clip-path: polygon(0% 100%, $border 100%, $border $border, ($width - $border) $border, ($width - $border) $height - $border, $border $height - $border, $border 100%, 100% 100%, 100% 0%, 0% 0%);
-						animation: gradient 3s ease-in-out infinite, border 1s forwards ease-in-out reverse;
-						
-						@media only screen and (min-width : $phone) {
-							width: $width-bigger;
-							clip-path: polygon(0% 100%, $border 100%, $border $border, ($width-bigger - $border) $border, ($width-bigger - $border) $height - $border, $border $height - $border, $border 100%, 100% 100%, 100% 0%, 0% 0%);
-						}
-						
-					}
-				}
-			}
-			
-			> a:hover, a:focus {
-				background: $pink-light;
-				transition:all .3s;
-				
-				span {
-					background: linear-gradient(120deg, white, white, white);
-					-webkit-background-clip: text;
-					-moz-background-clip: text;
-					
-					&:after {
-						background: $pink-light;
-					}
-				}
-			}
-			
-			#box-1 {
-			}
 			#box-2 {
 				border-color: linear-gradient(90deg, hsla(293, 50%, 60%, 0.6), hsla(293, 60%, 53%, 0.8));
 			}
+
 			#box-3 {
 				border-color: linear-gradient(45deg, hsla(293, 64%, 60%, 0.6), hsla(293, 64%, 53%, 0.8));
 			}
 		}
-		
+
 		p {
 			padding: 0rem 2rem;
 		}
 	}
 }
+
 #s_reviews {
 	padding: 2rem;
 	padding-top: 3rem;
 	padding-bottom: 5rem;
-	
+
 	clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+
 	@media only screen and (min-width : $pc) {
 		clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
 	}
-	
+
 	h2 {
 		color: white;
 	}
-	
+
 	h3 {
 		font-weight: 400;
 	}
-	
-	> .separator {
+
+	>.separator {
 		background-color: white;
 	}
-	
+
 	background-color:#5a6ebd;
-	background-image:  
-		radial-gradient(at 44% 48%, hsla(325,43%,55%,1) 0, transparent 54%),  
-		radial-gradient(at 93% 22%, hsla(265,43%,55%,1) 0, transparent 53%),  
-		radial-gradient(at 90% 14%, hsla(195,93%,50%,1) 0, transparent 0%),  
-		radial-gradient(at 18% 75%, hsla(293,36%,54%,1) 0, transparent 51%),  
-		radial-gradient(at 19% 99%, hsla(334,42%,79%,1) 0, transparent 0%);
-	
-	
+	background-image: radial-gradient(at 44% 48%, hsla(325, 43%, 55%, 1) 0, transparent 54%),
+	radial-gradient(at 93% 22%, hsla(265, 43%, 55%, 1) 0, transparent 53%),
+	radial-gradient(at 90% 14%, hsla(195, 93%, 50%, 1) 0, transparent 0%),
+	radial-gradient(at 18% 75%, hsla(293, 36%, 54%, 1) 0, transparent 51%),
+	radial-gradient(at 19% 99%, hsla(334, 42%, 79%, 1) 0, transparent 0%);
+
+
 	blockquote {
-		background-color: rgba(255,255,255,70%);
+		background-color: rgba(255, 255, 255, 70%);
 		border-radius: 20px;
 		padding: 1rem 2rem 5rem 2rem;
 		margin: 1.5rem 0;
 		max-width: 300px;
 		z-index: 1;
 		position: relative;
-		
+
 		@media only screen and (min-width : $ipad) {
 			margin: 1.5rem 0.7rem;
 		}
-		
+
 		p {
 			position: relative;
 		}
-		
+
 		.name {
 			color: $pink;
 			font-size: 1.5rem;
 		}
-		
+
 		.b_footer {
 			width: 90%;
 			position: absolute;
 			left: 5%;
-			bottom: 0;		
+			bottom: 0;
 
 			display: flex;
 			flex-wrap: wrap;
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: center;
-			
+
 			padding: 1rem 0;
 			bottom: 0;
-			border-top: 1px solid $pink;			
+			border-top: 1px solid $pink;
 		}
 	}
-	
-	blockquote:before{
+
+	blockquote:before {
 		content: '“';
 		font-family: 'Montserrat', "Helvetica Neue", Arial, sans-serif;
 		position: absolute;
@@ -320,31 +352,34 @@ a {
 		height: 50px;
 		text-align: center;
 		line-height: 4.5rem;
-	}	
+	}
 }
 
 #s_benefits {
 	background-color: white;
 	padding: 3rem 0;
-	> h2 {
+
+	>h2 {
 		color: $pink;
 	}
-	> .separator {
+
+	>.separator {
 		background-color: $pink;
 	}
-	
-	> .wrapper {
+
+	>.wrapper {
 		justify-content: center;
 	}
-	
+
 	img {
 		margin: 1rem 2rem;
 		height: 100px;
 		width: auto;
-		
+
 		-webkit-filter: grayscale(100%);
-        filter: grayscale(100%);
+		filter: grayscale(100%);
 		transition: 0.5s;
+
 		&:hover {
 			-webkit-filter: grayscale(0%);
 			filter: grayscale(0%);
@@ -353,42 +388,44 @@ a {
 }
 
 iframe {
-	display:block;
+	display: block;
 	height: 1200px;
 	width: 100%;
 	border: 0;
-	
+
 	@media only screen and (min-width : $ipad) {
 		height: 650px;
 	}
-}	
+}
 
 
 footer {
 	background: $gray;
 	color: white;
 	padding: 1rem 0;
-	
+
 	justify-content: space-between;
 	width: 100%;
-	
-	> .wrapper {
+
+	>.wrapper {
 		justify-content: center;
 	}
-	
+
 	a {
 		padding: 0.5rem 2rem;
 	}
-	a:hover, a:focus{
+
+	a:hover,
+	a:focus {
 		background: $pink-light;
 	}
 }
 
 .wrapper {
-    display: flex;
-    flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
 	flex-direction: column;
-	width: 100%;	
+	width: 100%;
 }
 
 .wrapper--state-phone {
