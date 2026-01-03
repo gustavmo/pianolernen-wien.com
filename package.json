@@ -6,8 +6,8 @@
   "license": "MIT",
   "author": "Gustav Messany-Oberwandling",
   "scripts": {
-    "start": "parcel serve ./src/index.html ./src/en/index.html ./src/kinder.html ./src/erwachsene.html ./src/en/children.html ./src/en/adults.html",
-    "prod": "parcel build ./src/index.html ./src/en/index.html ./src/kinder.html ./src/erwachsene.html ./src/en/children.html ./src/en/adults.html --no-source-maps"
+    "start": "parcel serve ./src/index.html ./src/en/index.html ./src/kinder.html ./src/erwachsene.html ./src/en/children.html ./src/en/adults.html ./src/impressum.html ./src/en/impressum.html ./src/datenschutz.html ./src/en/datenschutz.html ./src/experten.html ./src/en/experts.html",
+    "prod": "parcel build ./src/index.html ./src/en/index.html ./src/kinder.html ./src/erwachsene.html ./src/en/children.html ./src/en/adults.html ./src/impressum.html ./src/en/impressum.html ./src/datenschutz.html ./src/en/datenschutz.html ./src/experten.html ./src/en/experts.html --no-source-maps"
   },
   "devDependencies": {
     "@parcel/packager-raw-url": "^2.16.3",
